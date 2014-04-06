@@ -14,6 +14,7 @@ setup(
     version='1.0.0.dev0',
 
     install_requires=[
+        'flask',
         'gocept.logging',
         'lxml',
         'requests',
