@@ -1,0 +1,11 @@
+[run]
+branch = True
+source = ws.rsspull
+
+[report]
+precision = 2
+omit = */tests/*
+       */maildir.py
+
+[html]
+directory = coverage-report
