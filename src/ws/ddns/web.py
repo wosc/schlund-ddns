@@ -3,7 +3,7 @@ from ws.ddns.update import DNS
 import ConfigParser
 import os
 import os.path
-import wsgiref
+import wsgiref.handlers
 
 
 app = Flask(__name__)
@@ -41,4 +41,4 @@ def handle_error(error):
 
 
 def main():
-    wsgiref.CGIHandler().run(app.wsgi_app)
+    wsgiref.handlers.CGIHandler().run(app.wsgi_app)
