@@ -14,6 +14,7 @@ setup(
     version='1.0.0.dev0',
 
     install_requires=[
+        'gocept.logging',
         'lxml',
         'requests',
         'setuptools',
@@ -21,15 +22,15 @@ setup(
 
     entry_points={
         'console_scripts': [
-            'ddns-update = ws.ddns.update:main',
-            'ddns-cgi = ws.ddns.web:main',
+            'schlund-ddns = ws.ddns.update:main',
+            'schlund-ddns-cgi = ws.ddns.web:main',
         ],
     },
 
     author='Wolfgang Schnerring <wosc@wosc.de>',
     author_email='wosc@wosc.de',
     license='ZPL 2.1',
-    url='https://bitbucket.org/wosc/ddns/',
+    url='https://bitbucket.org/wosc/schlund-ddns/',
 
     description=__doc__.strip(),
     long_description='\n\n'.join(open(project_path(name)).read() for name in (
