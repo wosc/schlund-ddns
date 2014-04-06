@@ -35,6 +35,8 @@ example apache configuration snippet to do this::
     ScriptAlias /dns-update /path/to/ddns/schlund-ddns-cgi
     <Directory /path/to/ddns/>
       SetEnv DDNS_CONFIG /path/to/ddns/config
+      SetEnv PATH_INFO /
+
       AuthName "Dynamic DNS"
       AuthType Basic
       AuthUserFile /path/to/ddns/htpasswd
