@@ -31,7 +31,7 @@ setup(
     author='Wolfgang Schnerring <wosc@wosc.de>',
     author_email='wosc@wosc.de',
     license='ZPL 2.1',
-    url='https://bitbucket.org/wosc/schlund-ddns/',
+    url='https://github.com/wosc/schlund-ddns',
 
     description=__doc__.strip(),
     long_description='\n\n'.join(open(project_path(name)).read() for name in (
