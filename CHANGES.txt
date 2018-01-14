@@ -1,7 +1,7 @@
 CHANGES
 =======
 
-1.0.1 (unreleased)
+1.0.1 (2018-01-14)
 ------------------
 
 - Move from bitbucket to github
