@@ -4,7 +4,7 @@ CHANGES
 1.0.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Make web part Python-3 compatible
 
 
 1.0.3 (2018-03-03)

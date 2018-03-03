@@ -1,17 +1,20 @@
 from flask import Flask, request
 from ws.ddns.update import DNS
-import ConfigParser
 import os
 import os.path
 import wsgiref.handlers
 
+try:
+    from ConfigParser import ConfigParser
+except ImportError:
+    from configparser import ConfigParser
 
 app = Flask(__name__)
 
 
 @app.route('/')
 def update_view():
-    config = ConfigParser.ConfigParser({
+    config = ConfigParser({
         'url': 'https://gateway.schlundtech.de',
         'context': '10',
     })
