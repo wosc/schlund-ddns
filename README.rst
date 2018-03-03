@@ -49,6 +49,9 @@ The configuration file is a standard ini file and should look like this::
     username = USER
     password = PASS
 
+You can optionally add an ``allowed_hostnames = one.example.com two.example.com``
+whitespace-separated list to the config file, only those will then be accepted.
+
 The HTTP protocol is modeled after the one from `NoIP`_, that is, clients
 should perform a request like this to trigger a DNS update::
 

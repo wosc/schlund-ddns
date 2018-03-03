@@ -4,7 +4,7 @@ CHANGES
 1.0.5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add optional ``allowed_hostnames`` config option
 
 
 1.0.4 (2018-03-03)

@@ -20,11 +20,11 @@ def update_view():
     })
     config.read(os.path.expanduser(
         os.environ.get('DDNS_CONFIG', '~/.schlund-ddns')))
-    get = lambda x: config.get('default', x)
+    get = lambda x: config.get('default', x)  # noqa
 
     try:
         get('username')
-    except:
+    except Exception:
         raise RuntimeError('Not configured')
 
     hostname = request.args.get('hostname')
@@ -32,6 +32,11 @@ def update_view():
 
     if not (hostname and ip):
         raise RuntimeError('Required parameters: hostname, myip')
+
+    if config.has_option('default', 'allowed_hostnames'):
+        allowed = get('allowed_hostnames').split(' ')
+        if hostname not in allowed:
+            raise RuntimeError('Invalid hostname')
 
     dns = DNS(get('url'), get('username'), get('password'), get('context'))
     response = dns.update(hostname, ip)
