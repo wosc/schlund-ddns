@@ -1,7 +1,7 @@
 CHANGES
 =======
 
-1.0.5 (unreleased)
+1.1.0 (2018-03-03)
 ------------------
 
 - Add optional ``allowed_hostnames`` config option
