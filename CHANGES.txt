@@ -4,7 +4,7 @@ CHANGES
 1.0.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Make Python-3 compatible
 
 
 1.0.1 (2018-01-14)

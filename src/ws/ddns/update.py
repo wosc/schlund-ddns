@@ -98,4 +98,4 @@ def main():
     options = parser.parse_args()
     dns = DNS(options.url, options.username, options.password, options.context)
     response = dns.update(options.hostname, options.ip)
-    print response.result.status.find('text')
+    print(response.result.status.find('text'))
