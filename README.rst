@@ -33,16 +33,15 @@ file and then passing that file's path as an environment variable. Here's an
 example apache configuration snippet to do this::
 
     ScriptAlias /dns-update /path/to/ddns/schlund-ddns-cgi
-    <Directory /path/to/ddns/>
+    <Location /dns-update>
       SetEnv DDNS_CONFIG /path/to/ddns/config
-      SetEnv PATH_INFO /
 
       AuthName "Dynamic DNS"
       AuthType Basic
       AuthUserFile /path/to/ddns/htpasswd
       require valid-user
-    </Directory>
-    
+    </Location>
+
 The configuration file is a standard ini file and should look like this::
 
     [default]
