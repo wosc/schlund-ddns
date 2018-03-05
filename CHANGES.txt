@@ -1,7 +1,7 @@
 CHANGES
 =======
 
-1.1.1 (unreleased)
+1.1.1 (2018-03-05)
 ------------------
 
 - Handle ``PATH_INFO`` internally
