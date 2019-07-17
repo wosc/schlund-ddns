@@ -58,3 +58,6 @@ should perform a request like this to trigger a DNS update::
 
 
 .. _`NoIP`: http://www.noip.com/integrate/request
+
+
+There is also a docker image of the HTTP service here: https://hub.docker.com/r/customelements/schlund-ddns
