@@ -36,11 +36,11 @@ def update_view():
     if config.has_option('default', 'allowed_hostnames'):
         allowed = get('allowed_hostnames').split(' ')
         if hostname not in allowed:
-            raise RuntimeError('Invalid hostname')
+            raise RuntimeError('nohost')
 
     dns = DNS(get('url'), get('username'), get('password'), get('context'))
-    response = dns.update(hostname, ip)
-    return str(response.result.status.find('text'))
+    dns.update(hostname, ip)
+    return 'good %s' % ip
 
 
 @app.errorhandler(Exception)
