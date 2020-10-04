@@ -6,7 +6,7 @@ import glob
 
 setup(
     name='ws.ddns',
-    version='1.2.0',
+    version='1.2.1.dev0',
 
     install_requires=[
         'flask',
