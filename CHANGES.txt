@@ -8,6 +8,8 @@ CHANGES
 
 - Determine the domain name correctly for multi-level subdomains
 
+- Support 2FA TOTP authentication
+
 - Drop Python-2 support
 
 

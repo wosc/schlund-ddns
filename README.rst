@@ -64,3 +64,9 @@ should perform a request like this to trigger a DNS update::
 
 
 There is also a docker image of the HTTP service here: https://hub.docker.com/r/customelements/schlund-ddns
+
+2FA support
+-----------
+
+* Install ``pip install pyotp`` in addition to this package
+* Pass the 2FA secret (probably 16 characters, you may have to reverse-engineer them from the QR-Code used for setup) as `--totp-secret`` commandline or configuration parameter

@@ -5,6 +5,11 @@ import lxml.etree
 import lxml.objectify
 import requests
 
+try:
+    import pyotp
+except ImportError:  # soft dependency
+    pyotp = None
+
 
 log = logging.getLogger(__name__)
 
@@ -21,11 +26,15 @@ class DNS(object):
     ZONE_INQUIRE = '0205'
     ZONE_UPDATE = '0202'
 
-    def __init__(self, url, username, password, context):
+    def __init__(self, url, username, password, context, totp_secret=None):
         self.url = url
         self.username = username
         self.password = password
         self.context = context
+        self.totp_secret = totp_secret
+        if totp_secret is not None and pyotp is None:
+            raise ValueError('Using totp_secret requires installing pytotp')
+        breakpoint()
 
     def post(self, xml):
         xml = serialize_xml(xml)
@@ -36,11 +45,14 @@ class DNS(object):
     @property
     def _auth_xml(self):
         E = lxml.objectify.E
-        return E.auth(
+        auth = E.auth(
             E.user(self.username),
             E.password(self.password),
             E.context(self.context),
         )
+        if self.totp_secret:
+            auth.append(E.token(pyotp.TOTP(self.totp_secret).now()))
+        return auth
 
     def get(self, domain):
         E = lxml.objectify.E
@@ -97,6 +109,7 @@ def main():
     parser.add_argument('--username')
     parser.add_argument('--password')
     parser.add_argument('--context', default='10')
+    parser.add_argument('--totp-secret')
     parser.add_argument('--config', help='configuration filename')
     parser.add_argument('hostname')
     parser.add_argument('ip')
@@ -110,8 +123,8 @@ def main():
         config.read(options.config)
         config = dict(config.items('default'))
     else:
-        config = {x: getattr(options, x)
-                  for x in ['url', 'username', 'password', 'context']}
+        config = {x: getattr(options, x) for x in [
+            'url', 'username', 'password', 'context', 'totp_secret']}
 
     dns = DNS(**config)
     response = dns.update(options.hostname, options.ip)
