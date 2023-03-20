@@ -26,6 +26,8 @@ Then you can use the command-line utility provided by this package, like so::
 (See ``schlund-ddns --help`` for more configuration parameters, e.g. the
 ``context`` that you were told to use when applying for the XML-Gateway.)
 
+Instead of passing the parameters on the commandline, you can instead call ``schlund-ddns --config myconfig.ini`` (see below for the file format).
+
 
 Alternatively, set up the provided cgi script ``schlund-ddns-cgi`` to provide
 HTTP access. You'll need to provide username and password using a configuration
@@ -47,6 +49,7 @@ The configuration file is a standard ini file and should look like this::
     [default]
     username = USER
     password = PASS
+    context  = CONTEXT
 
 You can optionally add an ``allowed_hostnames = one.example.com two.example.com``
 whitespace-separated list to the config file, only those will then be accepted.

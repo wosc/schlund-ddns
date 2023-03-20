@@ -1,3 +1,4 @@
+from configparser import ConfigParser
 import gocept.logging
 import logging
 import lxml.etree
@@ -93,9 +94,22 @@ def main():
     parser.add_argument('--username')
     parser.add_argument('--password')
     parser.add_argument('--context', default='10')
+    parser.add_argument('--config', help='configuration filename')
     parser.add_argument('hostname')
     parser.add_argument('ip')
     options = parser.parse_args()
-    dns = DNS(options.url, options.username, options.password, options.context)
+
+    if options.config:
+        config = ConfigParser({
+            'url': 'https://gateway.schlundtech.de',
+            'context': '10',
+        })
+        config.read(options.config)
+        config = dict(config.items('default'))
+    else:
+        config = {x: getattr(options, x)
+                  for x in ['url', 'username', 'password', 'context']}
+
+    dns = DNS(**config)
     response = dns.update(options.hostname, options.ip)
     print(response.result.status.find('text'))
