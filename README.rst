@@ -23,7 +23,7 @@ Then you can use the command-line utility provided by this package, like so::
 
     $ schlund-ddns --username USER --password PASS home.example.com 1.2.3.4
 
-(See ``ddns-update --help`` for more configuration parameters, e.g. the
+(See ``schlund-ddns --help`` for more configuration parameters, e.g. the
 ``context`` that you were told to use when applying for the XML-Gateway.)
 
 
