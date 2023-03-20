@@ -1,13 +1,10 @@
+from configparser import ConfigParser
 from flask import Flask, request
 from ws.ddns.update import DNS
 import os
 import os.path
 import wsgiref.handlers
 
-try:
-    from ConfigParser import ConfigParser
-except ImportError:
-    from configparser import ConfigParser
 
 app = Flask(__name__)
 
