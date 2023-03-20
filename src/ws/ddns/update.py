@@ -58,7 +58,10 @@ class DNS(object):
         return response
 
     def update(self, hostname, ip):
-        host, domain = hostname.split('.', 1)
+        parts = hostname.split('.', 1)
+        host = '.'.join(parts[:-2])
+        domain = '.'.join(parts[-2:])
+
         zone = self.get(domain).result.data.zone
 
         current = zone.xpath('//rr[name = "%s"]' % host)

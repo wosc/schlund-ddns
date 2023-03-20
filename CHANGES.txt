@@ -6,6 +6,8 @@ CHANGES
 
 - Support a configuration file for the command line script
 
+- Determine the domain name correctly for multi-level subdomains
+
 - Drop Python-2 support
 
 
