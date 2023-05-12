@@ -70,7 +70,7 @@ class DNS(object):
         return response
 
     def update(self, hostname, ip):
-        parts = hostname.split('.', 1)
+        parts = hostname.split('.')
         host = '.'.join(parts[:-2])
         domain = '.'.join(parts[-2:])
 
