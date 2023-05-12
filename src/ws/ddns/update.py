@@ -26,15 +26,15 @@ class DNS(object):
     ZONE_INQUIRE = '0205'
     ZONE_UPDATE = '0202'
 
-    def __init__(self, url, username, password, context, totp_secret=None):
+    def __init__(self, url, username, password, context, **kw):
         self.url = url
         self.username = username
         self.password = password
         self.context = context
-        self.totp_secret = totp_secret
+        totp_secret = kw.get('totp_secret')
         if totp_secret is not None and pyotp is None:
             raise ValueError('Using totp_secret requires installing pytotp')
-        breakpoint()
+        self.totp_secret = totp_secret
 
     def post(self, xml):
         xml = serialize_xml(xml)
