@@ -1,1 +1,0 @@
-Fix config parsing after introducing totp secret parameter
