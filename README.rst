@@ -19,6 +19,7 @@ Install
 git clone https://github.com/wosc/schlund-ddns.git
 cd schlund-ddns/
 python3 -m pip install .
+schlund-ddns --help
 ```
 
 Usage
