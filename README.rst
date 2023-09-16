@@ -12,6 +12,16 @@ makes it do what we want.
 .. _`Schlundtech`: http://www.schlundtech.com/
 .. _`XML-Gateway`: http://www.schlundtech.com/services/xml-gateway/
 
+Install
+=======
+Download Repository with git
+
+Start automated installation with pyproject.toml
+ 
+```
+python3 -m pip install .
+```
+
 
 Usage
 =====
