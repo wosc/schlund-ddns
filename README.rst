@@ -16,8 +16,8 @@ makes it do what we want.
 Usage
 =====
 
-First, you need to create a subdomain with an A-record in your domain, say
-``home.example.com``.
+First, you need to create a subdomain with an A-record in your domain, say ``home.example.com``, 
+and install this package, e.g. with ``pip install ws.ddns`` (or ``git clone ...; pip install -e .``)
 
 Then you can use the command-line utility provided by this package, like so::
 
