@@ -12,6 +12,14 @@ makes it do what we want.
 .. _`Schlundtech`: http://www.schlundtech.com/
 .. _`XML-Gateway`: http://www.schlundtech.com/services/xml-gateway/
 
+Install
+=======
+
+```
+git clone https://github.com/wosc/schlund-ddns.git
+cd schlund-ddns/
+python3 -m pip install .
+```
 
 Usage
 =====
