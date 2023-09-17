@@ -12,7 +12,6 @@ except ImportError:  # soft dependency
     pyotp = None
 
 
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 log = logging.getLogger(__name__)
 
 def serialize_xml(xml):
@@ -79,7 +78,6 @@ class DNS(object):
 
         ip_obj = ipaddress.ip_address(ip)
         rtype = 'A' if isinstance(ip_obj, ipaddress.IPv4Address) else 'AAAA'
-        log.debug('RTYPE: %s', rtype)
 
         current = zone.xpath('//rr[name = "%s" and type = "%s"]' % (host, rtype))
         if not current:
