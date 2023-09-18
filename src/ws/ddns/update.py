@@ -131,4 +131,4 @@ def main():
 
     dns = DNS(**config)
     response = dns.update(options.hostname, options.ip)
-    print(response.result.status.find('text'))
+    log.info(response.result.status.find('text'))
