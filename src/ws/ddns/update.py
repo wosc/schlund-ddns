@@ -4,6 +4,7 @@ import logging
 import lxml.etree
 import lxml.objectify
 import requests
+import ipaddress
 
 try:
     import pyotp
@@ -12,7 +13,6 @@ except ImportError:  # soft dependency
 
 
 log = logging.getLogger(__name__)
-
 
 def serialize_xml(xml):
     lxml.objectify.deannotate(xml)
@@ -76,7 +76,10 @@ class DNS(object):
 
         zone = self.get(domain).result.data.zone
 
-        current = zone.xpath('//rr[name = "%s"]' % host)
+        ip_obj = ipaddress.ip_address(ip)
+        rtype = 'A' if isinstance(ip_obj, ipaddress.IPv4Address) else 'AAAA'
+
+        current = zone.xpath('//rr[name = "%s" and type = "%s"]' % (host, rtype))
         if not current:
             raise ValueError('No entry for %s found in zone data' % hostname)
         current = current[0]
