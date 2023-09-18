@@ -23,6 +23,9 @@ Then you can use the command-line utility provided by this package, like so::
 
     $ schlund-ddns --username USER --password PASS home.example.com 1.2.3.4
 
+If you have both an A and AAAA record for the subdomain, you have to update them separately,
+i.e. call the script twice, once with an IPv4 and a second time with IPv6 address.
+
 (See ``schlund-ddns --help`` for more configuration parameters, e.g. the
 ``context`` that you were told to use when applying for the XML-Gateway.)
 
