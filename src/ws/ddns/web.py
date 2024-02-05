@@ -35,7 +35,11 @@ def update_view():
         if hostname not in allowed:
             raise RuntimeError('nohost')
 
-    dns = DNS(get('url'), get('username'), get('password'), get('context'))
+    kw = {}
+    if config.has_option('default', 'totp_secret'):
+        kw['totp_secret'] = get('totp_secret')
+    dns = DNS(get('url'), get('username'), get('password'), get('context'),
+              **kw)
     dns.update(hostname, ip)
     return 'good %s' % ip
 
